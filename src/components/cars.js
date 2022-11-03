@@ -1,8 +1,10 @@
+import CarCard from "./card"
+
 const CarList = () => {
     return (
-        <div>
+        <div className="active">
             <h1>Todo OK</h1>
-            <p>Coche</p>
+            <CarCard />
         </div>
     )
 }

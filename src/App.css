@@ -5,3 +5,7 @@
 .redColor {
   color: red;
 }
+
+.active {
+  background-color: aquamarine;
+}
