@@ -2,7 +2,7 @@ import CarCard from "./card"
 
 const CarList = () => {
     return (
-        <div className="active">
+        <div>
             <h1>Todo OK</h1>
             <CarCard />
         </div>
