@@ -1,6 +1,7 @@
 import CarCard from "../card/card"
 import { useEffect, useState } from "react"
 import carsService from "../../services/cars.services"
+import './cars.css'
 
 const CarList = () => {
 
@@ -14,7 +15,12 @@ const CarList = () => {
     }, [])
 
     return (
-        cars?.map(car => <p>{car.brand} {car.model}</p>)
+        <div className="list">
+            {cars?.map(car =>
+                <CarCard {...car} />
+            )
+            }
+        </div>
     )
 }
 

@@ -1,0 +1,15 @@
+.car {
+    width: 300px;
+    background-color: blueviolet;
+    text-align: center;
+    margin: 50px;
+}
+
+img {
+    width: 100%;
+}
+
+.list {
+    width: 100%;
+    margin-top: 20px;
+}
