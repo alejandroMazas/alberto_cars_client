@@ -6,7 +6,8 @@ const CarsPage = () => {
     return (
         <>
             <Container>
-                <h1>Pagina de coches</h1>
+                <h2 className='heading'>Lista Completa</h2>
+                <hr></hr>
                 <CarList />
             </Container>
         </>

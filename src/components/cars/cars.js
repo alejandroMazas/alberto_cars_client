@@ -2,6 +2,7 @@ import CarCard from "../card/card"
 import { useEffect, useState } from "react"
 import carsService from "../../services/cars.services"
 import './cars.css'
+import { Col, Container, Row } from "react-bootstrap"
 
 const CarList = () => {
 
@@ -15,12 +16,16 @@ const CarList = () => {
     }, [])
 
     return (
-        <div className="list">
-            {cars?.map(car =>
-                <CarCard {...car} />
-            )
-            }
-        </div>
+        <Container>
+            <Row >
+                {cars?.map(car =>
+                    <Col md={{ span: 4 }} sm={{ span: 6 }} lg={{ span: 3 }}>
+                        <CarCard {...car} />
+                    </Col>
+                )
+                }
+            </Row>
+        </Container>
     )
 }
 
