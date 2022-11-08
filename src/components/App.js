@@ -1,7 +1,7 @@
 import React, { useState } from "react"
+import CarsPage from "../pages/carsPage/CarsPage";
 import './App.css';
-import './components/cars'
-import CarList from "./components/cars";
+import './cars/cars'
 
 const Prueba = (props) => {
 
@@ -22,7 +22,7 @@ const Prueba = (props) => {
 
 
 
-function App() {
+const App = () => {
   return (
     <div className="App">
 
@@ -30,7 +30,7 @@ function App() {
 
       <Prueba user="Alberto" />
       <Prueba user="Alejandro" />
-      <CarList />
+      <CarsPage />
 
     </div>
   );
