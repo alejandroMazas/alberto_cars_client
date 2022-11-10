@@ -19,7 +19,7 @@ const CarList = () => {
         <Container>
             <Row >
                 {cars?.map(car =>
-                    <Col md={{ span: 4 }} sm={{ span: 6 }} lg={{ span: 3 }}>
+                    <Col key={car._id} md={{ span: 4 }} sm={{ span: 6 }} lg={{ span: 3 }}>
                         <CarCard {...car} />
                     </Col>
                 )

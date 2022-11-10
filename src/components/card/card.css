@@ -2,12 +2,12 @@
     background-color: aquamarine;
 } */
 
-.imgCard {
+.CarCard img {
     width: 100%;
     height: 200px;
     object-fit: cover;
 }
 
-.cardBody {
+.CarCard {
     margin-top: 30px;
 }

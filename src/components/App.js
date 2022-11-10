@@ -1,7 +1,8 @@
-import React, { useState } from "react"
 import CarsPage from "../pages/carsPage/CarsPage";
 import './App.css';
 import './cars/cars'
+import Navigation from "./navbar/Navigation";
+import AppRoutes from "../routes/AppRoutes";
 
 // const Prueba = (props) => {
 
@@ -26,9 +27,10 @@ const App = () => {
   return (
     <div className="App">
 
+      <Navigation />
       {/* <Prueba user="Alberto" />
       <Prueba user="Alejandro" /> */}
-      <CarsPage />
+      <AppRoutes />
 
     </div>
   );
