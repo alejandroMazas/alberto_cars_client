@@ -1,4 +1,3 @@
-import CarsPage from "../pages/carsPage/CarsPage";
 import './App.css';
 import './cars/cars'
 import Navigation from "./navbar/Navigation";
@@ -31,6 +30,8 @@ const App = () => {
       {/* <Prueba user="Alberto" />
       <Prueba user="Alejandro" /> */}
       <AppRoutes />
+
+      
 
     </div>
   );
