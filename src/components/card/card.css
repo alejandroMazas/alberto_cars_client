@@ -1,6 +1,12 @@
-/* .active {
-    background-color: aquamarine;
-} */
+.actived {
+    border: 4px solid rgb(33, 169, 174);
+    border-radius: 10px;
+}
+
+.carLink {
+    text-decoration: none;
+    color: black;
+}
 
 .CarCard img {
     width: 100%;
