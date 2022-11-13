@@ -1,9 +1,10 @@
+import CarDetails from '../../../components/carsDetails/CarsDetails'
 import './CarsDetailsPage.css'
 
 const CarsDetailsPage = () => {
     return (
         <>
-            <h2>Esta es la pagina de detalles</h2>
+            <CarDetails />
         </>
     )
 }
