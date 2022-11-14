@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Container } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 import Loader from '../../../components/Loader/Loader'
 import carsService from '../../../services/cars.services'
@@ -37,12 +37,49 @@ const CarDetails = () => {
             <>
                 <img className='detailsImg' src={carDetails.image} alt={`${carDetails.brand} ${carDetails.model}`} />
                 <Container className='details'>
-                    <h3>{carDetails.brand} {carDetails.model}</h3>
-                    <h4>Características</h4>
-                    <ul>
-                        <li>Generación: {carDetails.generation}</li>
-                        <li>Producción: {carDetails.production}</li>
-                    </ul>
+
+                    <section>
+
+                        <Row>
+                            <Col md={{ span: 3 }}>
+                                <h3>{carDetails.brand} {carDetails.model}</h3>
+                                <h5>Generación: {carDetails.generation} </h5>
+                                <h5>Producción: {carDetails.production}</h5>
+                            </Col>
+
+                            <Col md={{ span: 3 }}>
+                                <h4>Tipología</h4>
+                                <ul>
+                                    <li>Tipo: {carDetails.carType}</li>
+                                    <li>Segmento: {carDetails.segment}</li>
+                                    <li>Puertas: {carDetails.doors}</li>
+                                    <li>Carrocería: {carDetails.carbody}</li>
+                                </ul>
+                            </Col>
+
+                            <Col md={{ span: 3 }}>
+                                <h4>Dimensiones</h4>
+                                <ul>
+                                    <li>Longitud: {carDetails.carLength}</li>
+                                    <li>Anchura: {carDetails.width}</li>
+                                    <li>Altura: {carDetails.heigth}</li>
+                                    <li>Battalla: {carDetails.battle}</li>
+                                    <li>Plazas: {carDetails.plazas}</li>
+                                    <li>Distribución: {carDetails.distribution}</li>
+                                </ul>
+                            </Col>
+                        </Row>
+                    </section>
+
+                    <section>
+                        <h4>Características técnicas</h4>
+                        <ul>
+                            <li>Motorización: {carDetails.motor}</li>
+                            <li>Disposición mecánica: {carDetails.mechanic}</li>
+                            <li>Propulsión motríz: {carDetails.propulsión}</li>
+                            <li>Combustible: {carDetails.carfuel}</li>
+                        </ul>
+                    </section>
 
 
                 </Container>
