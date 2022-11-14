@@ -2,6 +2,7 @@ import './App.css';
 import './cars/cars'
 import Navigation from "./navbar/Navigation";
 import AppRoutes from "../routes/AppRoutes";
+import Footer from './footer/Footer';
 
 // const Prueba = (props) => {
 
@@ -31,7 +32,9 @@ const App = () => {
       <Prueba user="Alejandro" /> */}
       <AppRoutes />
 
-      
+      <Footer />
+
+
 
     </div>
   );

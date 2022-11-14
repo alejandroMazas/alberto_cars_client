@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Card } from "react-bootstrap"
+import { Link } from "react-router-dom"
 import './card.css'
 
 const CarCard = ({ _id, brand, model, image }) => {
@@ -10,7 +11,7 @@ const CarCard = ({ _id, brand, model, image }) => {
     return (
         <>
             <div className="CarCard">
-                <a className="carLink" href={`/Detalles/${_id}`}>
+                <Link className="carLink" to={`/Detalles/${_id}`}>
                     <Card
                         className={cardView}
                         style={{ width: '18rem' }}
@@ -22,7 +23,7 @@ const CarCard = ({ _id, brand, model, image }) => {
                             <Card.Title>{brand} {model}</Card.Title>
                         </Card.Body>
                     </Card >
-                </a>
+                </Link>
             </div>
         </>
     )
