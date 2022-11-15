@@ -62,25 +62,25 @@ const CarDetails = () => {
                                 <ul>
                                     <li>Longitud: {carDetails.carLength}</li>
                                     <li>Anchura: {carDetails.width}</li>
-                                    <li>Altura: {carDetails.heigth}</li>
+                                    <li>Altura: {carDetails.height}</li>
                                     <li>Battalla: {carDetails.battle}</li>
                                     <li>Plazas: {carDetails.plazas}</li>
                                     <li>Distribución: {carDetails.distribution}</li>
                                 </ul>
                             </Col>
+
+                            <Col md={{ span: 3 }}>
+
+                                <h4>Características técnicas</h4>
+                                <ul>
+                                    <li>Motorización: {carDetails.motor}</li>
+                                    <li>Disposición mecánica: {carDetails.mechanic}</li>
+                                    <li>Propulsión motríz: {carDetails.propulsión}</li>
+                                    <li>Combustible: {carDetails.carfuel}</li>
+                                </ul>
+                            </Col>
                         </Row>
                     </section>
-
-                    <section>
-                        <h4>Características técnicas</h4>
-                        <ul>
-                            <li>Motorización: {carDetails.motor}</li>
-                            <li>Disposición mecánica: {carDetails.mechanic}</li>
-                            <li>Propulsión motríz: {carDetails.propulsión}</li>
-                            <li>Combustible: {carDetails.carfuel}</li>
-                        </ul>
-                    </section>
-
 
                 </Container>
             </>

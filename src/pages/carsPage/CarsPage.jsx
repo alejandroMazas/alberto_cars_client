@@ -7,7 +7,6 @@ const CarsPage = () => {
         <>
             <Container>
                 <h2 className='heading'>Lista Completa</h2>
-                <hr></hr>
                 <CarList />
             </Container>
         </>
