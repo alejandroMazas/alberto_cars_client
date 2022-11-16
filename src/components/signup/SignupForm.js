@@ -1,42 +1,60 @@
 import './SignupForm.css'
 import { Form } from 'react-bootstrap'
+import { useState } from 'react'
 
 const SignupForm = () => {
 
-    const handleSubmit = e => {
+    const [signupData, setSignupData] = useState(
+        {
+            username: "",
+            email: "",
+            password: ""
+        }
+    )
 
+    const handleSubmit = e => {
         e.preventDefault()
 
     }
 
+    const handleInput = e => {
+        const { value, name } = e.currentTarget
+        setSignupData({ ...signupData, [name]: value })
+
+        // if (name === 'username') setSignupData({ ...signupData, username: value })
+        // if (name === 'email') setSignupData({ ...signupData, email: value })
+        // if (name === 'password') setSignupData({ ...signupData, password: value })
+    }
+
+    const { username, email, password } = signupData
+
     return (
-        <h4 className='label'>Descripción</h4>
-        // <Form onSubmit={handleSubmit}>
-        //     <h4 className='label'>Descripción</h4>
-        //     <Form.Group className="mb-3" controlId="brand">
-        //         <Form.Label>Marca</Form.Label>
-        //         <Form.Control type="text" value={brand} onChange={handleInput} name="brand" />
-        //         <Form.Text className="text-muted">
-        //             Inserte la marca del vehículo.
-        //         </Form.Text>
-        //     </Form.Group>
+        <Form onSubmit={handleSubmit}>
+            <h4 className='label'>Registro</h4>
+            <Form.Group className="mb-3" controlId="username">
+                <Form.Label>Nombre de Usuario</Form.Label>
+                <Form.Control type="text" value={username} onChange={handleInput} name="username" />
+                <Form.Text className="text-muted">
+                    Inserte un nombre de usuario.
+                </Form.Text>
+            </Form.Group>
 
-        //     <Form.Group className="mb-3" controlId="model">
-        //         <Form.Label>Modelo</Form.Label>
-        //         <Form.Control type="text" value={model} onChange={handleInput} name="model" />
-        //         <Form.Text className="text-muted">
-        //             Inserte el modelo del vehículo.
-        //         </Form.Text>
-        //     </Form.Group>
+            <Form.Group className="mb-3" controlId="email">
+                <Form.Label>Dirección de e-mail</Form.Label>
+                <Form.Control type="text" value={email} onChange={handleInput} name="email" />
+                <Form.Text className="text-muted">
+                    Inserte una dirección de e-mail.
+                </Form.Text>
+            </Form.Group>
 
-        //     <Form.Group className="mb-3" controlId="image">
-        //         <Form.Label>Imagen</Form.Label>
-        //         <Form.Control type="text" value={image} onChange={handleInput} name="image" />
-        //         <Form.Text className="text-muted">
-        //             Inserte una imagen del vehículo.
-        //         </Form.Text>
-        //     </Form.Group>
-        // </Form>
+            <Form.Group className="mb-3" controlId="password">
+                <Form.Label>Contraseña</Form.Label>
+                <Form.Control type="password" value={password} onChange={handleInput} name="password" />
+                <Form.Text className="text-muted">
+                    Inserte una contraseña.
+                </Form.Text>
+            </Form.Group>
+        </Form>
     )
 }
 
