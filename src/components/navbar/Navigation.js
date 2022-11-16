@@ -21,6 +21,7 @@ const Navigation = () => {
                     >
                         <Nav.Link><NavLink className='navLink' to='/ListaCompleta'>Lista completa</NavLink></Nav.Link>
                         <Nav.Link><NavLink className='navLink' to='/CrearCoches'>Crear coches</NavLink></Nav.Link>
+                        <Nav.Link><NavLink className='navLink' to='/Registro'>Registro</NavLink></Nav.Link>
                         <NavDropdown className='navLink' title="Marcas" id="navbarScrollingDropdown">
                             <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
                             <NavDropdown.Item href="#action4">

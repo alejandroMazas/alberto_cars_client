@@ -60,10 +60,10 @@ const CarDetails = () => {
                             <Col md={{ span: 3 }}>
                                 <h4>Dimensiones</h4>
                                 <ul>
-                                    <li>Longitud: {carDetails.carLength}</li>
-                                    <li>Anchura: {carDetails.width}</li>
-                                    <li>Altura: {carDetails.height}</li>
-                                    <li>Battalla: {carDetails.battle}</li>
+                                    <li>Longitud: {carDetails.carLength} m</li>
+                                    <li>Anchura: {carDetails.width} m</li>
+                                    <li>Altura: {carDetails.height} m</li>
+                                    <li>Battalla: {carDetails.battle} m </li>
                                     <li>Plazas: {carDetails.plazas}</li>
                                     <li>Distribución: {carDetails.distribution}</li>
                                 </ul>
