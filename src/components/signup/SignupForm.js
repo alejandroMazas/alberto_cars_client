@@ -1,8 +1,12 @@
 import './SignupForm.css'
-import { Form } from 'react-bootstrap'
+import { Form, Button } from 'react-bootstrap'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import authService from '../../services/auth.services'
 
 const SignupForm = () => {
+
+    const navigate = useNavigate()
 
     const [signupData, setSignupData] = useState(
         {
@@ -14,6 +18,13 @@ const SignupForm = () => {
 
     const handleSubmit = e => {
         e.preventDefault()
+
+        authService
+            .saveUser(signupData)
+            .then(() => {
+                navigate('/')
+            })
+            .catch(err => console.log(err))
 
     }
 
@@ -54,6 +65,10 @@ const SignupForm = () => {
                     Inserte una contraseña.
                 </Form.Text>
             </Form.Group>
+
+            <Button variant="primary" type="submit">
+                Registrarse
+            </Button>
         </Form>
     )
 }
