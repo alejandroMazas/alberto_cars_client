@@ -1,15 +1,11 @@
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Form, Nav, Navbar, Container, Button, NavDropdown } from 'react-bootstrap';
+
 import { NavLink } from 'react-router-dom'
 import './Navigation.css'
 
 const Navigation = () => {
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="dark" expand="lg">
             <Container fluid>
                 <Navbar.Brand><NavLink to={'/'} className='navLink'>Los coches del albert</NavLink></Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
@@ -21,8 +17,8 @@ const Navigation = () => {
                     >
                         <Nav.Link><NavLink className='navLink' to='/ListaCompleta'>Lista completa</NavLink></Nav.Link>
                         <Nav.Link><NavLink className='navLink' to='/CrearCoches'>Crear coches</NavLink></Nav.Link>
-                        <Nav.Link><NavLink className='navLink' to='/Registro'>Registro</NavLink></Nav.Link>
-                        <NavDropdown className='navLink' title="Marcas" id="navbarScrollingDropdown">
+
+                        {/* <NavDropdown className='navLink' title="Marcas" id="navbarScrollingDropdown">
                             <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
                             <NavDropdown.Item href="#action4">
                                 Another action
@@ -31,7 +27,7 @@ const Navigation = () => {
                             <NavDropdown.Item href="#action5">
                                 Something else here
                             </NavDropdown.Item>
-                        </NavDropdown>
+                        </NavDropdown> */}
 
                     </Nav>
                     <Form className="d-flex">
@@ -41,8 +37,12 @@ const Navigation = () => {
                             className="me-2"
                             aria-label="Search"
                         />
-                        <Button>Buscar</Button>
+                        <Button variant='outline-light'>Buscar</Button>
                     </Form>
+                    <Nav>
+                        <Nav.Link><NavLink className='navLink' to='/Registro'>Registro</NavLink></Nav.Link>
+                        <Nav.Link><NavLink className='navLink' to='/Iniciar-sesion'>Iniciar sesión</NavLink></Nav.Link>
+                    </Nav>
                 </Navbar.Collapse>
             </Container>
         </Navbar >

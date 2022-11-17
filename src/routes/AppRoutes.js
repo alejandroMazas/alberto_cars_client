@@ -3,6 +3,7 @@ import CarsPage from '../pages/carsPage/CarsPage'
 import CarsDetailsPage from '../pages/carsPage/CarsDetailsPage/CarsDetailsPage'
 import CreateCarsPage from '../pages/carsPage/CreateCarsPage/CreateCarsPage'
 import SignupPage from '../pages/signupPage/signupPage'
+import LoginPage from '../pages/loginPage/loginPage'
 
 const AppRoutes = () => {
     return (
@@ -13,6 +14,7 @@ const AppRoutes = () => {
             <Route path='*' element={<p>Error 404!</p>}></Route>
             <Route path='/CrearCoches' element={<CreateCarsPage />}></Route>
             <Route path='/Registro' element={<SignupPage />}></Route>
+            <Route path='/Iniciar-sesion' element={<LoginPage />}></Route>
         </Routes >
     )
 }

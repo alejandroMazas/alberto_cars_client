@@ -9,6 +9,10 @@ class AuthService {
     saveUser = user => {
         return this.axiosApp.post(`/signup`, user)
     }
+
+    loginUser = user => {
+        return this.axiosApp.post(`/login`, user)
+    }
 }
 
 const authService = new AuthService()
