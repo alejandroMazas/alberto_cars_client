@@ -8,11 +8,8 @@ const SignupForm = () => {
 
     const navigate = useNavigate()
 
-    const [loginData, setLoginData] = useState(
-        {
-            email: "",
-            password: ""
-        }
+    const [loginData, setLoginData] = useState({ email: "", password: "" }
+
     )
 
     const handleSubmit = e => {
