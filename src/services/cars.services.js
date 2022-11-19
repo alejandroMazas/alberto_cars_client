@@ -19,6 +19,14 @@ class CarsService {
         return this.axiosApp.post(`/createCars`, car)
     }
 
+    updateCar = (car, id) => {
+        return this.axiosApp.put(`/cars/${id}/update`, car)
+    }
+
+    deleteCar = (id) => {
+        return this.axiosApp.delete(`/cars/${id}/delete`)
+    }
+
 }
 
 const carsService = new CarsService()
