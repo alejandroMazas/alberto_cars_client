@@ -4,14 +4,25 @@ class AuthService {
 
     constructor() {
         this.axiosApp = axios.create({ baseURL: 'http://localhost:5005' })
+
+        this.axiosApp.interceptors.request.use((config) => {
+
+            const storedToken = localStorage.getItem("authToken");
+
+            if (storedToken) {
+                config.headers = { Authorization: `Bearer ${storedToken}` }
+            }
+
+            return config
+        })
     }
 
     saveUser = user => {
-        return this.axiosApp.post(`/signup`, user)
+        return this.axiosApp.post('/signup', user)
     }
 
     loginUser = user => {
-        return this.axiosApp.post(`/login`, user)
+        return this.axiosApp.post('/login', user)
     }
 
     verify = token => {

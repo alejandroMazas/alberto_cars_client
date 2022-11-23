@@ -1,23 +1,25 @@
 import './LoginForm.css'
 import { Form, Button } from 'react-bootstrap'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import authService from '../../services/auth.services'
+import { AuthContext } from '../../context/authContext'
 
-const SignupForm = () => {
+const LoginForm = () => {
 
     const navigate = useNavigate()
 
-    const [loginData, setLoginData] = useState({ email: "", password: "" }
-
-    )
+    const [loginData, setLoginData] = useState({ email: "", password: "" })
+    const { storeToken, authenticateUser } = useContext(AuthContext)
 
     const handleSubmit = e => {
         e.preventDefault()
 
         authService
             .loginUser(loginData)
-            .then(() => {
+            .then(({ data }) => {
+                storeToken(data.authToken)
+                authenticateUser()
                 navigate('/')
             })
             .catch(err => console.log(err))
@@ -41,7 +43,7 @@ const SignupForm = () => {
 
             <Form.Group className="mb-3" controlId="email">
                 <Form.Label>Dirección de e-mail</Form.Label>
-                <Form.Control type="text" value={email} onChange={handleInput} name="email" />
+                <Form.Control type="email" value={email} onChange={handleInput} name="email" />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="password">
@@ -56,4 +58,4 @@ const SignupForm = () => {
     )
 }
 
-export default SignupForm
+export default LoginForm

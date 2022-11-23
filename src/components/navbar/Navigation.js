@@ -1,9 +1,13 @@
 import { Form, Nav, Navbar, Container, Button, NavDropdown } from 'react-bootstrap';
-
+import { AuthContext } from '../../context/authContext';
+import { useContext } from 'react';
 import { NavLink } from 'react-router-dom'
 import './Navigation.css'
 
 const Navigation = () => {
+
+    const { user, logOutUser, isLoggedIn } = useContext(AuthContext)
+
     return (
         <Navbar bg="dark" expand="lg">
             <Container fluid>
@@ -16,7 +20,13 @@ const Navigation = () => {
                         navbarScroll
                     >
                         <Nav.Link><NavLink className='navLink' to='/ListaCompleta'>Lista completa</NavLink></Nav.Link>
-                        <Nav.Link><NavLink className='navLink' to='/CrearCoches'>Crear coches</NavLink></Nav.Link>
+                        {
+                            (isLoggedIn && user.role === "ADMIN")
+                                ?
+                                <Nav.Link><NavLink className='navLink' to='/CrearCoches'>Crear coches</NavLink></Nav.Link>
+                                :
+                                <></>
+                        }
 
                         {/* <NavDropdown className='navLink' title="Marcas" id="navbarScrollingDropdown">
                             <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
@@ -40,8 +50,16 @@ const Navigation = () => {
                         <Button variant='outline-light'>Buscar</Button>
                     </Form>
                     <Nav>
-                        <Nav.Link><NavLink className='navLink' to='/Registro'>Registro</NavLink></Nav.Link>
-                        <Nav.Link><NavLink className='navLink' to='/Iniciar-sesion'>Iniciar sesión</NavLink></Nav.Link>
+                        {
+                            isLoggedIn
+                                ?
+                                <Nav.Link><NavLink className='navLink' to='/Registro' onClick={logOutUser}>Cerrar sesión</NavLink></Nav.Link>
+                                :
+                                <>
+                                    <Nav.Link><NavLink className='navLink' to='/Registro'>Registro</NavLink></Nav.Link>
+                                    <Nav.Link><NavLink className='navLink' to='/Iniciar-sesion'>Iniciar sesión</NavLink></Nav.Link>
+                                </>
+                        }
                     </Nav>
                 </Navbar.Collapse>
             </Container>
