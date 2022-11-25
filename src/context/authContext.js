@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 import authService from '../services/auth.services'
 
 const AuthContext = createContext()
@@ -46,6 +46,10 @@ const AuthProviderWrapper = (props) => {
         setIsLoading(false)
         setUser(null)
     }
+
+    useEffect = (() => {
+        authenticateUser()
+    })
 
     return (
         <AuthContext.Provider value={{ isLoggedIn, isLoading, user, storeToken, authenticateUser, logOutUser }}>

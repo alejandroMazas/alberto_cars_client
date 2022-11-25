@@ -4,8 +4,18 @@ class CarsService {
 
     constructor() {
         this.axiosApp = axios.create({ baseURL: 'http://localhost:5005' })
-    }
 
+        this.axiosApp.interceptors.request.use((config) => {
+
+            const storedToken = localStorage.getItem("authToken");
+
+            if (storedToken) {
+                config.headers = { Authorization: `Bearer ${storedToken}` }
+            }
+
+            return config
+        })
+    }
 
     getAllCars = () => {
         return this.axiosApp.get('/cars')
