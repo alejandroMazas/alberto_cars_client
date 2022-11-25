@@ -3,6 +3,7 @@ import { Button, Container, Form, Row, Col } from 'react-bootstrap'
 import carsService from '../../services/cars.services'
 import './CreateCarForm.css'
 import { useNavigate } from "react-router-dom"
+import uploadService from '../../services/upload.services'
 
 const CreateCarForm = () => {
 
@@ -78,6 +79,20 @@ const CreateCarForm = () => {
             .catch(err => console.log(err))
     }
 
+    const handleImageUpload = (e) => {
+
+        const uploadData = new FormData()
+        uploadData.append('imageData', e.target.files[0])
+
+        uploadService
+            .uploadImage(uploadData)
+            .then(({ data }) => {
+                setCarData({ ...carData, image: data.cloudinary_url })
+            })
+            .catch(err => console.log(err))
+
+    }
+
     return (
         <Container>
 
@@ -100,13 +115,23 @@ const CreateCarForm = () => {
                                 Inserte el modelo del vehículo.                            </Form.Text>
                         </Form.Group>
 
-                        <Form.Group className="mb-3" controlId="image">
+                        {/* <Form.Group className="mb-3" controlId="image">
                             <Form.Label>Imagen</Form.Label>
                             <Form.Control type="text" value={image} onChange={handleInput} name="image" />
                             <Form.Text className="text-muted">
-                                Inserte una imagen del vehículo.
+                                Inserte una url de una imagen del vehículo.
+                            </Form.Text>
+                        </Form.Group> */}
+
+                        <Form.Group className="mb-3" controlId="image">
+                            <Form.Label>Imagen (archivo)</Form.Label>
+                            <Form.Control type="file" onChange={handleImageUpload} />
+                            <Form.Text className="text-muted">
+                                Inserte un archivo de imagen del vehículo.
                             </Form.Text>
                         </Form.Group>
+
+
 
                         <Form.Group className="mb-3" controlId="generation">
                             <Form.Label>Generación</Form.Label>
