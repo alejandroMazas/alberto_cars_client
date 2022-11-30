@@ -35,7 +35,10 @@ const CarDetails = () => {
             <Loader />
             :
             <>
-                <img className='detailsImg' src={carDetails.image} alt={`${carDetails.brand} ${carDetails.model}`} />
+                <Container>
+                    <img className='detailsImg' src={carDetails.image} alt={`${carDetails.brand} ${carDetails.model}`} />
+                </Container>
+
                 <Container className='details'>
 
                     <section>

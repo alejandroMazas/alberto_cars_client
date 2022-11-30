@@ -1,11 +1,15 @@
 import CarCard from "../card/card"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
 import carsService from "../../services/cars.services"
 import './cars.css'
 import { Button, Col, Container, Row } from "react-bootstrap"
 import Loader from "../Loader/Loader"
+import { AuthContext } from "../../context/authContext"
+
 
 const CarList = () => {
+
+    const { user, logOutUser, isLoggedIn } = useContext(AuthContext)
 
     const [cars, setCars] = useState([])
     const [loading, setLoading] = useState(false)
@@ -47,7 +51,15 @@ const CarList = () => {
                         :
                         < Col key={car._id} md={{ span: 4 }} sm={{ span: 6 }} lg={{ span: 3 }}>
                             <CarCard {...car} />
-                            <Button onClick={() => deleteCar(car._id)}>Eliminar coche</Button>
+                            {
+                                (isLoggedIn && user.role === 'ADMIN')
+                                    ?
+                                    <Button onClick={() => deleteCar(car._id)}>Eliminar coche</Button>
+                                    :
+                                    ""
+
+                            }
+
                         </Col>
                 )
                 }

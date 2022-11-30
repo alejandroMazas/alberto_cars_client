@@ -1,4 +1,4 @@
-import { Card } from "react-bootstrap"
+import { Card, Container } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import './card.css'
 
@@ -11,7 +11,9 @@ const CarCard = ({ _id, brand, model, image }) => {
                     <Card
                         className='card'
                         style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src={image} alt='carImage' />
+                        <Container>
+                            <Card.Img variant="top" src={image} alt='carImage' />
+                        </Container>
                         <Card.Body>
                             <Card.Title>{brand} {model}</Card.Title>
                         </Card.Body>
