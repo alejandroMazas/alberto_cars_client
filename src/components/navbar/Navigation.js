@@ -1,10 +1,21 @@
 import { Form, Nav, Navbar, Container, Button, NavDropdown } from 'react-bootstrap';
 import { AuthContext } from '../../context/authContext';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom'
 import './Navigation.css'
 
 const Navigation = () => {
+
+    const [search, setSearch] = useState([])
+
+    const handleSearch = e => {
+        setSearch(e.target.value)
+        console.log("Busqueda: " + e.target.value)
+    }
+
+    // const filterSearch = (searchElement) => {
+    //     const searchResult = 
+    // }
 
     const { user, logOutUser, isLoggedIn } = useContext(AuthContext)
 
@@ -43,9 +54,11 @@ const Navigation = () => {
                     <Form className="d-flex">
                         <Form.Control
                             type="search"
+                            value={search}
                             placeholder="Search"
                             className="me-2"
                             aria-label="Search"
+                            onChange={handleSearch}
                         />
                         <Button variant='outline-light'>Buscar</Button>
                     </Form>

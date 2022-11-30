@@ -9,7 +9,7 @@ import { AuthContext } from "../../context/authContext"
 
 const CarList = () => {
 
-    const { user, logOutUser, isLoggedIn } = useContext(AuthContext)
+    const { user, isLoggedIn } = useContext(AuthContext)
 
     const [cars, setCars] = useState([])
     const [loading, setLoading] = useState(false)
